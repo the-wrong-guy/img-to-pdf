@@ -35,7 +35,7 @@ Promise.all(imgArr.map((item) => downloadImage(item, `${uuid()}.png`)))
     res.map((item, index) => {
       if (index === 0) {
         doc.image(item, {
-          fit: [200, 200],
+          fit: [500, 400],
           align: "center",
           valign: "center",
         });
