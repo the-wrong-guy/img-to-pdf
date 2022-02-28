@@ -1,9 +1,8 @@
 const fs = require("fs");
-const client = require("https");
 const { v4: uuid } = require("uuid");
 const axios = require("axios");
-const dir = require("node-dir");
 const PDFDocument = require("pdfkit");
+const path = require("path");
 
 doc = new PDFDocument({ size: "A4" });
 
@@ -48,5 +47,21 @@ Promise.all(imgArr.map((item) => downloadImage(item, `${uuid()}.png`)))
       }
     });
     doc.end();
+
+    //clearing the images folder
+    const directory = "images";
+    clearDir(directory);
   })
   .catch(console.error);
+
+function clearDir(directory) {
+  fs.readdir(directory, (err, files) => {
+    if (err) throw err;
+
+    for (const file of files) {
+      fs.unlink(path.join(directory, file), (err) => {
+        if (err) throw err;
+      });
+    }
+  });
+}
