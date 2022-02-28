@@ -1,0 +1,17 @@
+{
+  "name": "download-images-from-url",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "node-dir": "^0.1.17",
+    "pdfkit": "^0.13.0",
+    "uuid": "^8.3.2"
+  }
+}
