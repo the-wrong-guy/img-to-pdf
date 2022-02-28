@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@coderosh/images-to-pdf": "^2.1.0",
     "axios": "^0.26.0",
     "node-dir": "^0.1.17",
     "pdfkit": "^0.13.0",

@@ -32,19 +32,21 @@ doc.pipe(fs.createWriteStream("output.pdf"));
 
 Promise.all(imgArr.map((item) => downloadImage(item, `${uuid()}.png`)))
   .then((res) => {
-    res.map((item) => {
-      doc.image(item, {
-        fit: [200, 200],
-        align: "center",
-      });
+    res.map((item, index) => {
+      if (index === 0) {
+        doc.image(item, {
+          fit: [200, 200],
+          align: "center",
+          valign: "center",
+        });
+      } else {
+        doc.addPage().image(item, {
+          fit: [500, 400],
+          align: "center",
+          valign: "center",
+        });
+      }
     });
     doc.end();
   })
   .catch(console.error);
-
-// doc.addPage()
-//    .image('./1.png', {
-//    fit: [500,400],
-//    align: 'center',
-//    valign: 'center'
-// });
